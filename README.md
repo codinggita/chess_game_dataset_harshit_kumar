@@ -42,16 +42,7 @@ chess_game_dataset_harshit_kumar/
 └── README.md           # Project documentation
 ```
 
-## 🔌 5. API Modules
-
-The API is divided into several modular route groups:
-
-- **Auth API (`/api/auth`)**: `POST /register`, `POST /login`
-- **Matches API (`/api/matches`)**: Standard CRUD operations for match data. Includes support for pagination, sorting, and advanced filtering.
-- **Players API (`/api/players`)**: Endpoints focused on player-specific statistics and match histories.
-- **Analytics API (`/api/analytics`)**: Complex endpoints for data aggregations, such as opening success rates and overall platform metrics.
-
-## 🚀 6. Installation Steps
+## 🚀 5. Installation Steps
 
 1. **Clone the repository:**
    ```bash
@@ -68,7 +59,7 @@ The API is divided into several modular route groups:
    - Create a `.env` file in the root directory.
    - Fill in the required environment variables (see below).
 
-## 🔑 7. Environment Variables
+## 🔑 6. Environment Variables
 
 Create a `.env` file in the root directory with the following variables:
 
@@ -78,7 +69,7 @@ MONGODB_URI=mongodb://localhost:27017/chess_analytics
 JWT_SECRET=hk_chess_secret_key
 ```
 
-## 🏃‍♂️ 8. Run Commands
+## 🏃‍♂️ 7. Run Commands
 
 - **Start the server in development mode (e.g. with nodemon):**
   ```bash
@@ -90,7 +81,7 @@ JWT_SECRET=hk_chess_secret_key
   npm start
   ```
 
-## 🔮 9. Future Frontend Dashboard Integration
+## 🔮 8. Future Frontend Dashboard Integration
 
 While currently a backend-focused application, this API is designed to seamlessly integrate with a future frontend dashboard (e.g., React, Vue.js, or Next.js). 
 
