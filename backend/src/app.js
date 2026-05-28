@@ -5,6 +5,7 @@ const cors = require('cors');
 const matchRoutes = require('./routes/match.routes');
 const searchRoutes = require('./routes/search.routes');
 const analyticsRoutes = require('./routes/analytics.routes');
+const statsRoutes = require('./routes/stats.routes');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use('/api/v1/matches', matchRoutes);
 app.use('/api/v1/search', searchRoutes);
 app.use('/api/v1/analytics', analyticsRoutes);
+app.use('/api/v1/stats', statsRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Chess Match Analytics API is running!' });
