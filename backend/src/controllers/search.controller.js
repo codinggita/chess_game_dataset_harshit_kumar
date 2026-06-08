@@ -1,6 +1,6 @@
 const Match = require('../models/Match');
 
-exports.searchMatches = async (req, res) => {
+exports.searchMatches = async (req, res, next) => {
   try {
     const searchTerm = req.query.q || '';
     
@@ -14,11 +14,11 @@ exports.searchMatches = async (req, res) => {
     
     res.status(200).json({ success: true, count: matches.length, data: matches });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.searchPlayers = async (req, res) => {
+exports.searchPlayers = async (req, res, next) => {
   try {
     const searchTerm = req.query.q || '';
     
@@ -31,11 +31,11 @@ exports.searchPlayers = async (req, res) => {
     
     res.status(200).json({ success: true, count: matches.length, data: matches });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.searchOpenings = async (req, res) => {
+exports.searchOpenings = async (req, res, next) => {
   try {
     const searchTerm = req.query.q || '';
     
@@ -45,11 +45,11 @@ exports.searchOpenings = async (req, res) => {
     
     res.status(200).json({ success: true, count: matches.length, data: matches });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.searchEco = async (req, res) => {
+exports.searchEco = async (req, res, next) => {
   try {
     const searchTerm = req.query.q || '';
     
@@ -59,6 +59,6 @@ exports.searchEco = async (req, res) => {
     
     res.status(200).json({ success: true, count: matches.length, data: matches });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
