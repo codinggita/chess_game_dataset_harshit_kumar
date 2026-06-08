@@ -11,14 +11,19 @@ const generateToken = (id) => {
 };
 
 // Register a new user
-exports.register = async (req, res) => {
+exports.register = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
+    
+    // Basic Validation Check
+    if (!username || !email || !password) {
+      return res.status(400).json({ success: false, message: 'Please provide username, email and password' });
+    }
     
     // Check if the user already exists in the DB
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ success: false, error: 'User already exists' });
+      return res.status(400).json({ success: false, message: 'User already exists' });
     }
     
     // Hash the raw password using bcryptjs
@@ -43,25 +48,30 @@ exports.register = async (req, res) => {
       token: generateToken(user._id)
     });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
 // Login existing user
-exports.login = async (req, res) => {
+exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     
+    // Basic Validation Check
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: 'Please provide email and password' });
+    }
+
     // Find the user by their email
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ success: false, error: 'Invalid credentials' });
+      return res.status(400).json({ success: false, message: 'Invalid credentials' });
     }
     
     // Compare the raw password with the hashed password in DB
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ success: false, error: 'Invalid credentials' });
+      return res.status(400).json({ success: false, message: 'Invalid credentials' });
     }
     
     // Return success along with a new token
@@ -75,22 +85,22 @@ exports.login = async (req, res) => {
       token: generateToken(user._id)
     });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
 // Get the current logged-in user's profile
-exports.getProfile = async (req, res) => {
+exports.getProfile = async (req, res, next) => {
   try {
     // req.user.id is securely attached by our auth middleware!
     const user = await User.findById(req.user.id).select('-password'); // Exclude password from the response
     
     if (!user) {
-      return res.status(404).json({ success: false, error: 'User not found' });
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
     
     res.status(200).json({ success: true, data: user });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };

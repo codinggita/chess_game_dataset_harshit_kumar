@@ -1,4 +1,5 @@
 const express = require('express');
+const { protect } = require('../middlewares/auth.middleware');
 const {
   getMatches,
   getMatchById,
@@ -34,10 +35,11 @@ router.get('/sort/highest-rated', getHighestRatedMatches);
 
 
 router.get('/', getMatches);
-router.post('/', createMatch);
+// Protect write operations
+router.post('/', protect, createMatch);
 
 router.get('/:id', getMatchById);
-router.patch('/:id', updateMatch);
-router.delete('/:id', deleteMatch);
+router.patch('/:id', protect, updateMatch);
+router.delete('/:id', protect, deleteMatch);
 
 module.exports = router;

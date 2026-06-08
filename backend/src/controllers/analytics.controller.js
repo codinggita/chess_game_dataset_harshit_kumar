@@ -1,6 +1,6 @@
 const Match = require('../models/Match');
 
-exports.getVictoryDistribution = async (req, res) => {
+exports.getVictoryDistribution = async (req, res, next) => {
   try {
     const data = await Match.aggregate([
       {
@@ -20,11 +20,11 @@ exports.getVictoryDistribution = async (req, res) => {
     
     res.status(200).json({ success: true, data });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.getColorAdvantage = async (req, res) => {
+exports.getColorAdvantage = async (req, res, next) => {
   try {
     const data = await Match.aggregate([
       {
@@ -44,11 +44,11 @@ exports.getColorAdvantage = async (req, res) => {
     
     res.status(200).json({ success: true, data });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.getTurnCountAverage = async (req, res) => {
+exports.getTurnCountAverage = async (req, res, next) => {
   try {
     const data = await Match.aggregate([
       {
@@ -67,11 +67,11 @@ exports.getTurnCountAverage = async (req, res) => {
     
     res.status(200).json({ success: true, data: data[0] });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.getRatedVsCasual = async (req, res) => {
+exports.getRatedVsCasual = async (req, res, next) => {
   try {
     const data = await Match.aggregate([
       {
@@ -91,11 +91,11 @@ exports.getRatedVsCasual = async (req, res) => {
     
     res.status(200).json({ success: true, data });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
 
-exports.getOpeningSuccess = async (req, res) => {
+exports.getOpeningSuccess = async (req, res, next) => {
   try {
     const data = await Match.aggregate([
       {
@@ -121,6 +121,6 @@ exports.getOpeningSuccess = async (req, res) => {
     
     res.status(200).json({ success: true, data });
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Server Error' });
+    next(error);
   }
 };
