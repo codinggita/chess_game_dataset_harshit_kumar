@@ -124,3 +124,14 @@ exports.getOpeningSuccess = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.getShortestGames = async (req, res, next) => { try { res.json({ success: true, message: "Mock Shortest Games Analytics" }); } catch (err) { next(err); } };
+exports.getLongestGames = async (req, res, next) => { try { res.json({ success: true, message: "Mock Longest Games Analytics" }); } catch (err) { next(err); } };
+exports.getRatingGapUpsets = async (req, res, next) => { try { res.json({ success: true, message: "Mock Upsets Analytics" }); } catch (err) { next(err); } };
+exports.getCheckmateFrequency = async (req, res, next) => { try { res.json({ success: true, message: "Mock Checkmate Frequency" }); } catch (err) { next(err); } };
+exports.getDrawFrequency = async (req, res, next) => { try { res.json({ success: true, message: "Mock Draw Frequency" }); } catch (err) { next(err); } };
+exports.getResignationFrequency = async (req, res, next) => { try { res.json({ success: true, message: "Mock Resignation Frequency" }); } catch (err) { next(err); } };
+exports.getTimeouts = async (req, res, next) => { try { res.json({ success: true, message: "Mock Timeouts Analytics" }); } catch (err) { next(err); } };
+exports.getPlayerGrowth = async (req, res, next) => { try { res.json({ success: true, message: "Mock Player Growth" }); } catch (err) { next(err); } };
+exports.getHourlyActivity = async (req, res, next) => { try { res.json({ success: true, message: "Mock Hourly Activity" }); } catch (err) { next(err); } };
+exports.getTimeControlUsage = async (req, res, next) => { try { res.json({ success: true, message: "Mock Time Control Usage" }); } catch (err) { next(err); } };
