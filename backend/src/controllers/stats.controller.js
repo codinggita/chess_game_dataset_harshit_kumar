@@ -109,3 +109,12 @@ exports.getDrawRate = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.getCheckmateRate = async (req, res, next) => { try { res.json({ success: true, stat: 'checkmate_rate', value: 25, unit: '%' }); } catch (err) { next(err); } };
+exports.getResignationRate = async (req, res, next) => { try { res.json({ success: true, stat: 'resignation_rate', value: 60, unit: '%' }); } catch (err) { next(err); } };
+exports.getTimeoutRate = async (req, res, next) => { try { res.json({ success: true, stat: 'timeout_rate', value: 5, unit: '%' }); } catch (err) { next(err); } };
+exports.getRatedGames = async (req, res, next) => { try { res.json({ success: true, stat: 'rated_games', value: 10000 }); } catch (err) { next(err); } };
+exports.getUnratedGames = async (req, res, next) => { try { res.json({ success: true, stat: 'unrated_games', value: 500 }); } catch (err) { next(err); } };
+exports.getDailyGames = async (req, res, next) => { try { res.json({ success: true, stat: 'daily_games', value: 200 }); } catch (err) { next(err); } };
+exports.getMonthlyGames = async (req, res, next) => { try { res.json({ success: true, stat: 'monthly_games', value: 6000 }); } catch (err) { next(err); } };
+exports.getYearlyGames = async (req, res, next) => { try { res.json({ success: true, stat: 'yearly_games', value: 72000 }); } catch (err) { next(err); } };
