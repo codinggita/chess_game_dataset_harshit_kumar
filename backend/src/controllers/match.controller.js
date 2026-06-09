@@ -186,3 +186,6 @@ exports.getHighestRatedMatches = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.getScrollMatches = async (req, res, next) => { try { res.json({ success: true, message: "Cursor pagination mock" }); } catch (err) { next(err); } };
+exports.getInfiniteMatches = async (req, res, next) => { try { res.json({ success: true, message: "Infinite scroll mock" }); } catch (err) { next(err); } };

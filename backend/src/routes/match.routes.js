@@ -15,7 +15,10 @@ const {
   // Sort handlers
   getLongestMatches,
   getShortestMatches,
-  getHighestRatedMatches
+  getHighestRatedMatches,
+  // Pagination
+  getScrollMatches,
+  getInfiniteMatches
 } = require('../controllers/match.controller');
 
 const router = express.Router();
@@ -32,7 +35,9 @@ router.get('/sort/longest', getLongestMatches);
 router.get('/sort/shortest', getShortestMatches);
 router.get('/sort/highest-rated', getHighestRatedMatches);
 
-
+// Pagination
+router.get('/scroll', getScrollMatches);
+router.get('/infinite', getInfiniteMatches);
 
 router.get('/', getMatches);
 // Protect write operations
