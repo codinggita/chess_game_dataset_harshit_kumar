@@ -62,7 +62,7 @@ const Sidebar = () => {
       animate={{ 
         width: sidebarOpen ? 280 : 88,
       }}
-      className={`fixed top-4 left-4 bottom-4 z-50 flex flex-col overflow-hidden hidden md:flex border border-border bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]`}
+      className={`fixed top-4 left-4 bottom-4 z-50 flex flex-col overflow-hidden border border-border bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] ${sidebarOpen ? 'flex' : 'hidden md:flex'}`}
     >
       {/* Logo Area */}
       <div className="h-24 flex items-center px-6 border-b border-border/50">
