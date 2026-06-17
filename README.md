@@ -33,17 +33,24 @@ Whether you want to discover the highest win-rate openings, analyze player trend
 
 The project is built on a **MERN-stack** architecture (MongoDB, Express, React, Node.js), cleanly separated into two environments:
 
-```mermaid
-graph TD;
-    Client["💻 Client (React + Vite)"]:::frontend -->|REST API Requests| API["⚙️ Server (Node + Express)"]:::backend;
-    API -->|Validates JWT & Routes| Controllers["🎛️ Controllers"]:::backend;
-    Controllers -->|Reads/Writes Data| DB[("🗄️ MongoDB Database")]:::database;
-    DB -->|Aggregated Data| Controllers;
-    Controllers -->|JSON Response| Client;
-
-    classDef frontend fill:#2d3748,stroke:#4fd1c5,stroke-width:2px,color:#fff;
-    classDef backend fill:#2d3748,stroke:#68d391,stroke-width:2px,color:#fff;
-    classDef database fill:#2d3748,stroke:#f6e05e,stroke-width:2px,color:#fff;
+```text
++-------------------------+         REST API         +-------------------------+
+|                         |    (JSON over HTTP)      |                         |
+|  💻 React Dashboard     | -----------------------> |  ⚙️ Node.js / Express   |
+|   (Vite + Redux)        | <----------------------- |   (Controllers + JWT)   |
+|                         |                          |                         |
++-----------+-------------+                          +------------+------------+
+            |                                                     |
+            |                                                     |
+            |                                           Mongoose ODM (Queries)
+            |                                                     |
+            |                                                     V
+            |                                        +-------------------------+
+            |                                        |                         |
+            +----------- View Updates -------------- |  🗄️ MongoDB Database    |
+                                                     |   (Aggregations)        |
+                                                     |                         |
+                                                     +-------------------------+
 ```
 
 1. **The Client (React + Vite):** 
