@@ -104,3 +104,37 @@ exports.getProfile = async (req, res, next) => {
     next(error);
   }
 };
+
+// Update the current logged-in user's profile
+exports.updateProfile = async (req, res, next) => {
+  try {
+    const { username } = req.body;
+    
+    if (!username) {
+      return res.status(400).json({ success: false, message: 'Please provide a username' });
+    }
+    
+    // Check if the username is already taken by another user
+    const existingUser = await User.findOne({ username });
+    if (existingUser && existingUser._id.toString() !== req.user.id) {
+      return res.status(400).json({ success: false, message: 'Username is already taken. Please choose another one.' });
+    }
+    
+    const user = await User.findByIdAndUpdate(
+      req.user.id,
+      { username },
+      { new: true, runValidators: true }
+    ).select('-password');
+    
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    
+    res.status(200).json({ success: true, data: user });
+  } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({ success: false, message: 'Username is already taken. Please choose another one.' });
+    }
+    next(error);
+  }
+};
