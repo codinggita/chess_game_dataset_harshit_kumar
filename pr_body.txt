@@ -1,0 +1,10 @@
+## Summary
+Prepares the project for production deployment on Render (Backend) and Vercel (Frontend), alongside adding final minor graphical assets.
+
+## Changes
+• Added `start` script to `backend/package.json` to allow Render to natively run the Node.js server.
+• Updated `frontend/src/services/api.js` to dynamically use `import.meta.env.VITE_API_URL` instead of hardcoded `localhost`, ensuring Vercel builds connect to the deployed backend.
+• Included final graphical assets (favicon, hero images, SVG icons).
+
+## Impact
+Ensures a completely smooth, zero-configuration deployment process for both Vercel and Render, officially completing the project setup!
