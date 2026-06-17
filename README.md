@@ -7,7 +7,7 @@
 
   [![Frontend](https://img.shields.io/badge/Frontend-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://chess-game-dataset-harshit-kumar.vercel.app)
   [![Backend](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://chess-game-dataset-harshit-kumar.onrender.com)
-  [![Postman](https://img.shields.io/badge/Postman-Documentation-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](#)
+  [![Postman](https://img.shields.io/badge/Postman-Documentation-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://documenter.getpostman.com/view/50839854/2sBXwtqpxw)
   [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
   <br />
@@ -15,7 +15,7 @@
   ### 🔗 Live Links
   🌐 **Frontend Live Demo:** [chess-game-dataset-harshit-kumar.vercel.app](https://chess-game-dataset-harshit-kumar.vercel.app)  
   ⚙️ **Backend API URL:** [chess-game-dataset-harshit-kumar.onrender.com](https://chess-game-dataset-harshit-kumar.onrender.com)  
-  📚 **Postman Documentation:** *[Insert Postman Documentation Link Here]*
+  📚 **Postman Documentation:** [Postman API Reference](https://documenter.getpostman.com/view/50839854/2sBXwtqpxw)
 
 </div>
 
@@ -29,6 +29,35 @@ Whether you want to discover the highest win-rate openings, analyze player trend
 
 ---
 
+## 🌊 Project Flow & Architecture
+
+The project is built on a **MERN-stack** architecture (MongoDB, Express, React, Node.js), cleanly separated into two environments:
+
+```mermaid
+graph TD;
+    Client["💻 Client (React + Vite)"]:::frontend -->|REST API Requests| API["⚙️ Server (Node + Express)"]:::backend;
+    API -->|Validates JWT & Routes| Controllers["🎛️ Controllers"]:::backend;
+    Controllers -->|Reads/Writes Data| DB[("🗄️ MongoDB Database")]:::database;
+    DB -->|Aggregated Data| Controllers;
+    Controllers -->|JSON Response| Client;
+
+    classDef frontend fill:#2d3748,stroke:#4fd1c5,stroke-width:2px,color:#fff;
+    classDef backend fill:#2d3748,stroke:#68d391,stroke-width:2px,color:#fff;
+    classDef database fill:#2d3748,stroke:#f6e05e,stroke-width:2px,color:#fff;
+```
+
+1. **The Client (React + Vite):** 
+   - A highly responsive dashboard where users can log in, view live charts, browse paginated chess matches, and configure settings. 
+   - Uses **Redux Toolkit** for robust global state management (Authentication & UI Theming).
+   - Secures private routes to ensure only logged-in users can view sensitive data.
+
+2. **The Server (Node + Express):**
+   - Receives API requests and verifies user identity using **JWT (JSON Web Tokens)**.
+   - Queries a highly-optimized **MongoDB** database to perform complex aggregations (e.g., finding the most successful openings, or filtering matches by Elo ratings).
+   - Returns paginated JSON data back to the frontend to ensure fast loading times.
+
+---
+
 ## 🛠️ Tech Stack & Technologies
 
 ### 💻 Frontend Architecture
@@ -36,8 +65,6 @@ Whether you want to discover the highest win-rate openings, analyze player trend
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
-![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
 
 ### ⚙️ Backend Architecture
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
