@@ -1,92 +1,150 @@
-# ♟️ Chess Match Analytics API
-
 <div align="center">
-  <p>A backend-heavy full-stack project for analyzing chess match datasets, featuring comprehensive REST APIs for match statistics, player analytics, and more.</p>
+  <img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=2000&auto=format&fit=crop" alt="Chess Banner" style="border-radius: 12px; margin-bottom: 20px; width: 100%; max-height: 300px; object-fit: cover;"/>
+
+  <h1>♟️ Grandmaster Analytics</h1>
+
+  <p><strong>An Enterprise-Grade Full-Stack Platform for Deep Chess Match Analysis</strong></p>
+
+  [![Frontend](https://img.shields.io/badge/Frontend-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://chess-game-dataset-harshit-kumar.vercel.app)
+  [![Backend](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://chess-game-dataset-harshit-kumar.onrender.com)
+  [![Postman](https://img.shields.io/badge/Postman-Documentation-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](#)
+  [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
+  <br />
+
+  ### 🔗 Live Links
+  🌐 **Frontend Live Demo:** [chess-game-dataset-harshit-kumar.vercel.app](https://chess-game-dataset-harshit-kumar.vercel.app)  
+  ⚙️ **Backend API URL:** [chess-game-dataset-harshit-kumar.onrender.com](https://chess-game-dataset-harshit-kumar.onrender.com)  
+  📚 **Postman Documentation:** *[Insert Postman Documentation Link Here]*
+
 </div>
 
-## 📖 1. Project Overview
+---
 
-The **Chess Match Analytics API** is a robust backend system designed to ingest, manage, and analyze large datasets of chess matches. It provides a comprehensive suite of RESTful APIs to retrieve match details, compute player statistics, analyze opening moves, and perform complex aggregations. The system is secured using JWT authentication, ensuring that only authorized users can perform sensitive operations.
+## 🌟 Introduction
 
-## ✨ 2. Features
+**Grandmaster Analytics** is a modern, beautifully designed full-stack web application built to analyze massive datasets of professional chess matches. 
 
-- **Authentication System:** Secure user registration and login using JWT.
-- **Match CRUD Operations:** Create, Read, Update, and Delete chess match records.
-- **Player Statistics:** Advanced endpoints to fetch player win rates, performance metrics, and history.
-- **Opening Analytics:** Aggregation endpoints to analyze the most successful and frequently played chess openings.
-- **Search, Filter, Sort & Paginate:** Highly queryable API to filter matches by date, player, elo, result, etc., with built-in pagination.
-- **Aggregation Analytics:** Deep data insights using MongoDB aggregation pipelines.
+Whether you want to discover the highest win-rate openings, analyze player trends, or filter millions of matches by Elo, time control, or victory status, Grandmaster Analytics provides the tools to do it. It features a lightning-fast Node.js/Express REST API on the backend and a stunning, glassmorphism-inspired React Dashboard on the frontend.
 
-## 🛠️ 3. Tech Stack
+---
 
-- **Runtime:** Node.js
-- **Framework:** Express.js
-- **Database:** MongoDB
-- **ODM:** Mongoose
-- **Security:** JWT Authentication
+## 🛠️ Tech Stack & Technologies
 
-## 📁 4. Folder Structure
+### 💻 Frontend Architecture
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+
+### ⚙️ Backend Architecture
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
+
+---
+
+## ✨ Key Features
+
+- **🔐 Secure Authentication:** Complete JWT-based registration, login, and protected routing.
+- **📊 Interactive Dashboard:** High-level metrics showing total games, active players, and unique openings.
+- **🔍 Deep Filtering:** Find games based on time controls (Bullet, Blitz, Rapid, Classical), Victory Status (Checkmate, Resignation, Time Out), and Elo thresholds.
+- **🌓 Dual Theming:** Beautiful Light and Dark modes with a sleek glassmorphism aesthetic (persisted via LocalStorage).
+- **📱 Fully Responsive:** Works perfectly on desktop, tablet, and mobile devices with a sliding hamburger menu and Framer Motion animations.
+
+---
+
+## 📡 Core API Endpoints
+
+The backend exposes a highly optimized REST API. All protected routes require a `Bearer <token>` in the Authorization header.
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| `POST` | `/api/v1/auth/register` | Register a new user | ❌ |
+| `POST` | `/api/v1/auth/login` | Login and receive JWT | ❌ |
+| `GET`  | `/api/v1/auth/profile` | Get current user profile | ✅ |
+| `GET`  | `/api/v1/matches` | Fetch paginated chess matches | ✅ |
+| `GET`  | `/api/v1/matches/:id` | Get details of a single match | ✅ |
+| `GET`  | `/api/v1/players` | Fetch top players & stats | ✅ |
+| `GET`  | `/api/v1/openings` | Aggregate most successful openings | ✅ |
+| `GET`  | `/api/v1/system/health` | API Healthcheck status | ❌ |
+
+---
+
+## 📁 Directory Structure
 
 ```text
 chess_game_dataset_harshit_kumar/
-├── src/
-│   ├── config/         # Database and environment configurations
-│   ├── controllers/    # API request handlers and business logic
-│   ├── middlewares/    # Custom middlewares (e.g., JWT Auth, Error handling)
-│   ├── models/         # Mongoose schemas and models (User, Match)
-│   ├── routes/         # Express API route definitions
-│   └── utils/          # Utility functions and helpers
-├── .env                # Environment variables file
-├── .gitignore          # Files and folders to ignore in Git
-├── package.json        # Project metadata and dependencies
-└── README.md           # Project documentation
+├── backend/                  # Express.js REST API
+│   ├── data/                 # Raw dataset CSV/JSON files
+│   ├── src/
+│   │   ├── controllers/      # Route request handlers
+│   │   ├── middlewares/      # JWT validation, error handling
+│   │   ├── models/           # Mongoose schemas
+│   │   └── routes/           # API route definitions
+│   └── package.json
+└── frontend/                 # React (Vite) Single Page App
+    ├── public/               # Static assets
+    ├── src/
+    │   ├── components/       # Reusable UI components (Sidebar, Navbar, etc.)
+    │   ├── pages/            # View components (Dashboard, Login, Settings)
+    │   ├── services/         # Axios API configuration
+    │   └── store/            # Redux ToolKit global state slices
+    ├── vercel.json           # Vercel SPA routing rules
+    └── package.json
 ```
 
-## 🚀 5. Installation Steps
+---
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/harshit-kumar-dev/chess_game_dataset_harshit_kumar.git
-   cd chess_game_dataset_harshit_kumar
-   ```
+## 🚀 Local Installation
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+Want to run Grandmaster Analytics on your own machine? Follow these easy steps:
 
-3. **Configure environment variables:**
-   - Create a `.env` file in the root directory.
-   - Fill in the required environment variables (see below).
+### 1. Clone the Repository
+```bash
+git clone https://github.com/harshit-kumar-dev/chess_game_dataset_harshit_kumar.git
+cd chess_game_dataset_harshit_kumar
+```
 
-## 🔑 6. Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-
+### 2. Setup the Backend
+```bash
+cd backend
+npm install
+```
+Create a `.env` file inside the `backend` folder:
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/chess_analytics
-JWT_SECRET=hk_chess_secret_key
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secret_key
+```
+Run the backend server:
+```bash
+npm run dev
 ```
 
-## 🏃‍♂️ 7. Run Commands
+### 3. Setup the Frontend
+Open a new terminal window:
+```bash
+cd frontend
+npm install
+```
+Create a `.env` file inside the `frontend` folder:
+```env
+VITE_API_URL=http://localhost:5000/api/v1
+```
+Run the frontend server:
+```bash
+npm run dev
+```
 
-- **Start the server in development mode (e.g. with nodemon):**
-  ```bash
-  npm run dev
-  ```
+### 4. Play!
+Open your browser and navigate to `http://localhost:5173` to view the app!
 
-- **Start the server in production mode:**
-  ```bash
-  npm start
-  ```
-
-## 🔮 8. Future Frontend Dashboard Integration
-
-While currently a backend-focused application, this API is designed to seamlessly integrate with a future frontend dashboard (e.g., React, Vue.js, or Next.js). 
-
-**Planned Dashboard Features:**
-- Visual charts for player win/loss ratios.
-- Interactive data tables for exploring match datasets.
-- Heatmaps and graphs for popular opening moves.
-- User-friendly authentication flows and profile management.
+---
+<div align="center">
+  <p>Built with ❤️ by <strong>Harshit Kumar</strong></p>
+</div>
