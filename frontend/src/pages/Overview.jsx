@@ -129,10 +129,10 @@ const Overview = () => {
       >
         <div className="absolute -top-10 -left-10 text-9xl opacity-5 pointer-events-none select-none">♜</div>
         <div className="relative z-10 flex flex-col gap-1">
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-black">
+          <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-black dark:text-white">
             Dashboard Overview
           </h1>
-          <p className="text-lg sm:text-xl font-medium text-black mt-1">
+          <p className="text-lg sm:text-xl font-medium text-black dark:text-white mt-1">
             Real-time chess analytics at a glance.
           </p>
         </div>
