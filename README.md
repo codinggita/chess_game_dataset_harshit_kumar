@@ -65,6 +65,44 @@ The project is built on a **MERN-stack** architecture (MongoDB, Express, React, 
 
 ---
 
+## 🗄️ Database Schema (ERD)
+
+Below is the Entity-Relationship Diagram representing the core MongoDB collections used in Grandmaster Analytics. The dataset separates application users from the historical chess match data.
+
+```mermaid
+erDiagram
+    USER {
+        ObjectId _id PK
+        String username UK "Unique username"
+        String email UK "User email"
+        String password "Hashed password"
+        Date createdAt "Timestamp"
+        Date updatedAt "Timestamp"
+    }
+
+    MATCH {
+        ObjectId _id PK
+        String match_id UK "Unique Lichess match ID"
+        Boolean rated "Is the match rated?"
+        Date created_at "Match start time"
+        Date last_move_at "Match end time"
+        Number turns "Total moves played"
+        String victory_status "e.g., mate, resign, outoftime"
+        String winner "white or black"
+        String increment_code "e.g., 15+2"
+        String white_id "White player ID"
+        Number white_rating "White Elo"
+        String black_id "Black player ID"
+        Number black_rating "Black Elo"
+        String[] moves "Array of PGN moves"
+        String opening_eco "e.g., C20"
+        String opening_name "Opening description"
+        Number opening_ply "Number of opening moves"
+    }
+```
+
+---
+
 ## 🛠️ Tech Stack & Technologies
 
 ### 💻 Frontend Architecture
