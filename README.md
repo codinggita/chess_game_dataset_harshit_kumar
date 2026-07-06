@@ -65,7 +65,7 @@ The project is built on a **MERN-stack** architecture (MongoDB, Express, React, 
 
 ---
 
-## 🗄️ Database Schema (ERD)
+## 🗄️ Database Schema
 
 Below is the Entity-Relationship Diagram representing the core MongoDB collections used in Grandmaster Analytics. The dataset separates application users from the historical chess match data.
 
